@@ -103,7 +103,6 @@ When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
 end
 
 Then /^I should see all of the movies$/ do
-  debugger
   page.should have_css("tbody tr", :count=> Movie.count)
 end
 
