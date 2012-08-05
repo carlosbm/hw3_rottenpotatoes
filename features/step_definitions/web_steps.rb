@@ -103,14 +103,12 @@ When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
 end
 
 Then /^I should see all of the movies$/ do
-  actual_number = page.all('#movielist tr').size
   debugger
-  actual_number.should == Movie.count
+  page.should have_css("tbody tr", :count=> Movie.count)
 end
 
 Then /^I should see no movies$/ do
-  actual_number = page.all('#movielist tr').size
-  actual_number.should == 0
+  page.should have_no_css("tbody tr")
 end
 
 Then /^(?:|I )should see "([^"]*)"$/ do |text|
